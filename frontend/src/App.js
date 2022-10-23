@@ -10,7 +10,7 @@ import LoginForm from './components/SessionForms/LoginForm';
 import SignupForm from './components/SessionForms/SignupForm';
 import Tweets from './components/Tweets/Tweets';
 import Profile from './components/Profile/Profile';
-import TweetCompose from './components/Tweets/TweetCompose';
+import TweetCompose from './components/Tweets/TweetsCompose';
 
 import { getCurrentUser } from './store/session';
 
