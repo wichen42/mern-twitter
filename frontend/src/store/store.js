@@ -3,7 +3,8 @@ import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
   session,
-  errors
+  errors,
+  tweets
 });
 
 let enhancer;
