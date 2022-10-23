@@ -7,6 +7,8 @@ const cors = require('cors');
 const csurf = require('csurf');
 const { isProduction } = require('./config/keys');
 
+require('./models/User');
+
 const usersRouter = require('./routes/api/users');
 const tweetsRouter = require('./routes/api/tweets');
 const csrfRouter = require('./routes/api/csrf');
@@ -25,18 +27,18 @@ if (!isProduction) {
 
 app.use(
     csurf({
-        cookie: {
-            secure: isProduction,
-            sameSite: isProduction && "Lax",
-            httpOnly: true
-        }
+      cookie: {
+        secure: isProduction,
+        sameSite: isProduction && "Lax",
+        httpOnly: true
+      }
     })
-);
+  );
 
 
 app.use('/api/users', usersRouter);
 app.use('/api/tweets', tweetsRouter);
-app.use('api/csrf', csrfRouter);
+app.use('/api/csrf', csrfRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
 // a 404 error to be sent as the response.
